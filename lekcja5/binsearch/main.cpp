@@ -1,8 +1,23 @@
 #include <iostream>
 #include <algorithm>
-
+//finds a number in  a soreted array and returns it
 int binarySearch(int arr[], int left, int right, int target) {
     // TODO: Implement Binary Search algorithm
+      //finds the middle of the array
+    if(right>=left){
+        int mid = left + (right-left)/2;
+        
+    //checks if the middle is  the target if it is the function returns it
+    if(arr[mid]==target)
+        return mid;
+    
+    //checks if the middle is smaller than the target
+    if(arr[mid]<target)
+        return binarySearch(arr,left,mid-1,target);
+    
+        // if all of the above are false the target must be bigger so that is what the function returns.
+        return binarySearch(arr,mid+1,right,target);
+    }
     return -1;
 }
 
