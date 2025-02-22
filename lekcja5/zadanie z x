@@ -61,7 +61,7 @@ int binarySearch(int arr[], int left, int right, int target) {
     if(arr[mid]<target&&arr[mid+1]<=target)
         return binarySearch(arr,left,mid+1,target);
     else{
-return mid;
+return mid };
 
       
 // checks if the pivot our moving will still be bigger or equal to the target if no it returns mid-1
@@ -72,8 +72,10 @@ else {
 return mid-1;
 
 }
+
 }
     return -1;
+}
 
 int main(){
 
