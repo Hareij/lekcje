@@ -1,102 +1,92 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 
-
-
-
-
-
-
-
-int main(){
-    int elem= -1;
-    int indeks= -1;
-    int T[] = {5,3,6, 2, 8, 7, 4};
+int main()
+{
+    int elem = -1;
+    int indeks = -1;
+    int T[] = {5, 3, 6, 2, 8, 7, 4};
     int size = sizeof(T) / sizeof(T[0]);
-    int x =  5;
-    
-    
+    int x = 5;
+
     std::sort(T, T + size);
 
-
-    for(int i=0; i<size ; i++ ){
-        if(T[i]<= x && T[i] > elem){
-            elem=T[i];
-            indeks=i;
-        
+    for (int i = 0; i < size; i++)
+    {
+        if (T[i] <= x && T[i] > elem)
+        {
+            elem = T[i];
+            indeks = i;
+        }
     }
-}
-    if(elem> -1){
-        std::cout << "największa liczba najbliższa lub równa  x to : " << " " << elem << " "  << "ma ona ideks : " << " "  << indeks << std::endl;
-    }
-
-    else{
-        std::cout << "nie ma w tablicy mniejszej lub równej liczby " << " "  << elem << std::endl;
+    if (elem > -1)
+    {
+        std::cout << "największa liczba najbliższa lub równa  x to : " << " " << elem << " " << "ma ona ideks : " << " " << indeks << std::endl;
     }
 
- 
-
-
-
-
+    else
+    {
+        std::cout << "nie ma w tablicy mniejszej lub równej liczby " << " " << elem << std::endl;
+    }
 
     return 0;
 }
 
-//option 2
+// option 2
 
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 
-int binarySearch(int arr[], int left, int right, int target) {
-      //finds the middle of the array
-    if(right>=left){
-        int mid = left + (right-left)/2;
-        
-    //checks if the middle is  the target if it is the function returns it
-    if(arr[mid]==target)
-        return mid;
-    
-    //checks if the middle is smaller than the target and if after the pivot moves it is smaller or equal to our target if it isn't it returns the value of mid+1.
-    if(arr[mid]<target&&arr[mid+1]<=target)
-        return binarySearch(arr,left,mid+1,target);
-    else{
-return mid };
+int binarySearch(int arr[], int left, int right, int target)
+{
+    // finds the middle of the array
+    if (right >= left)
+    {
+        int mid = left + (right - left) / 2;
 
-      
-// checks if the pivot our moving will still be bigger or equal to the target if no it returns mid-1
-if(arr[mid-1]>=target){
-        return binarySearch(arr,mid-1,right,target);
+        // checks if the middle is  the target if it is the function returns it
+        if (arr[mid] == target)
+            return mid;
+
+        // checks if the middle is smaller than the target and if after the pivot moves it is smaller or equal to our target if it isn't it returns the value of mid+1.
+        if (arr[mid] < target && arr[mid + 1] <= target)
+            return binarySearch(arr, left, mid + 1, target);
+        else
+        {
+            return mid
+        };
+
+        // checks if the pivot our moving will still be bigger or equal to the target if no it returns mid-1
+        if (arr[mid - 1] >= target)
+        {
+            return binarySearch(arr, mid - 1, right, target);
+        }
+        else
+        {
+            return mid - 1;
+        }
     }
-else {
-return mid-1;
-
-}
-
-}
     return -1;
 }
 
-int main(){
+int main()
+{
 
- int T[] = {5,3,6, 2, 8, 7, 4};
+    int T[] = {5, 3, 6, 2, 8, 7, 4};
     int size = sizeof(T) / sizeof(T[0]);
-    int x =  5;
-    
-    
+    int x = 5;
+
     std::sort(T, T + size);
 
-  int result = binarySearch(T, 0, size - 1, x);
-if(result!=-1){
-  std::cout << " indeks liczby najbliższej lub równej x to : " << "  " << result << std::endl;
-}
-else
-{
-std::cout << " Nie ma liczby mniejszej lub równej x " << " "  << std::endl;
-}
+    int result = binarySearch(T, 0, size - 1, x);
+    if (result != -1)
+    {
+        std::cout << " indeks liczby najbliższej lub równej x to : " << "  " << result << std::endl;
+    }
+    else
+    {
+        std::cout << " Nie ma liczby mniejszej lub równej x " << " " << std::endl;
+    }
 
-
-
-
-return 0;
+    return 0;
 }
