@@ -1,7 +1,7 @@
 all: run
 
 build: main.cpp
-	gcc -o program main.cpp -lstdc++
+	g++ -o program main.cpp  -std=c++17
 
 run: build
 	./program
