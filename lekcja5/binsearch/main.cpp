@@ -3,7 +3,11 @@
 //finds a number in  a soreted array and returns it
 int binarySearch(int arr[], int left, int right, int target) {
     // TODO: Implement Binary Search algorithm
+<<<<<<< HEAD
     //finds the middle of the array
+=======
+      //finds the middle of the array
+>>>>>>> 648128f2c9f6dab9f37b23e43f0eb8ff1835abc2
     if(right>=left){
         int mid = left + (right-left)/2;
         
@@ -18,7 +22,10 @@ int binarySearch(int arr[], int left, int right, int target) {
         // if all of the above are false the target must be bigger so that is what the function returns.
         return binarySearch(arr,mid+1,right,target);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 648128f2c9f6dab9f37b23e43f0eb8ff1835abc2
     return -1;
 }
 
