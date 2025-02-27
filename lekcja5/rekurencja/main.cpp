@@ -40,6 +40,7 @@ void quickSort(int T[], int left, int right)
 
     for (int i = left; i < right - 1; i++)
     {
+
         int elem = T[i];
         if (elem >= pivot)
         {
