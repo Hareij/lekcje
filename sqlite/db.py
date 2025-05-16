@@ -1,25 +1,25 @@
-import sqlite3
+import sqlite3 //importuje bazę danych
 
 
-def init_db():
-    conn = sqlite3.connect("pokedex.db")
-    cur = conn.cursor()
+def init_db(): //funkcja inicjalizuje bazę danych
+    conn = sqlite3.connect("pokedex.db") // łączy się z bazą danych 
+    cur = conn.cursor() // ustawienie wskażnika?
 
-    cur.execute("CREATE TABLE IF NOT EXISTS pokemons(name)")
-    conn.commit()
-
-
-def add_pokemon_name(name: str):
-    conn = sqlite3.connect("pokedex.db")
-    cur = conn.cursor()
-
-    cur.execute(f"INSERT INTO pokemons VALUES ('{name}')")
-    conn.commit()
+    cur.execute("CREATE TABLE IF NOT EXISTS pokemons(name)") // nie wiem
+    conn.commit() // zapisuje zmiany
 
 
-def get_pokemon_names() -> list[str]:
-    conn = sqlite3.connect("pokedex.db")
-    cur = conn.cursor()
+def add_pokemon_name(name: str): // funkcja dodaje pokemony
+    conn = sqlite3.connect("pokedex.db") // lączy się z bazą danych
+    cur = conn.cursor() // ustawienie wskażnika?
 
-    res = cur.execute("SELECT name FROM pokemons")
-    return [elem[0] for elem in res.fetchall()]
+    cur.execute(f"INSERT INTO pokemons VALUES ('{name}')") //  nie wiem
+    conn.commit() // zapisuje zmiany
+
+
+def get_pokemon_names() -> list[str]: // wypisuje nasze pokemony
+    conn = sqlite3.connect("pokedex.db") // łączy się z bazą danych
+    cur = conn.cursor() // zapisuje zmiany
+
+    res = cur.execute("SELECT name FROM pokemons")// nie wiem
+    return [elem[0] for elem in res.fetchall()] // nie wiem
